@@ -23,8 +23,7 @@ body {
 }
 
 .introText:hover {
-	font-size: 210px;
-	transform: scale(1.1);
+	transform: scale(1.12);
 }
 
 .dot {
