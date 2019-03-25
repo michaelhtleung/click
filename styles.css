@@ -18,7 +18,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 200px;
-	transition: all .9s ease-in-out;
+	transition: transform .9s ease-in-out;
 	/*border: 3px solid orange;*/
 }
 
