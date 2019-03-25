@@ -12,7 +12,7 @@ body {
 	justify-content: center
 }
 
-.introText {
+#introText {
 	color: #FFFFFF; /* white */	
 	font-family: 'Great Vibes', cursive;
 	margin: 0;
@@ -22,7 +22,7 @@ body {
 	/*border: 3px solid orange;*/
 }
 
-.introText:hover {
+#introText:hover {
 	transform: scale(1.12);
 }
 
@@ -38,4 +38,18 @@ body {
 
 .dot.regression {
 	background-color: #FFFFFF; /* white */	
+	position: relative;
+	animation-name: jitter;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes jitter {
+	25% {
+		margin-bottom: 30px;
+	}
+	75% {
+		margin-top: 30px;
+	}
 }
