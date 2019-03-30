@@ -7,12 +7,18 @@
 	  		crossorigin="anonymous">
 	  	</script>	
 
-		<!-- Javascripts -->
-		<!-- <script src="app.js"></script> -->
+	  	<!-- CDN: regression-js npm module -->
+	  	<script
+	  		src="https://cdnjs.cloudflare.com/ajax/libs/regression/1.4.0/regression.min.js">
+	  	</script>	
+
 		<!-- regression-js npm module -->
 		<!-- In the browser, this is one way to import js modules to run. -->
 		<!-- In nodejs, we typically "require" npm modules to run. -->
 		<script src="node_modules/regression/dist/regression.js"></script>
+
+		<!-- Javascripts -->
+		<!-- <script src="app.js"></script> -->
 		<script src="model.js"></script>
 		<script src="controller.js"></script>
 
@@ -25,11 +31,16 @@
 
 	</head>
 
-	<body onclick="getCoordinates(event)">
+	<body>
+		<div id="flex-container" onclick="hideTitle()">
 		<h1 id="introText">Click!</h1>
-<!-- 			<div class="dot data">
-			</div>
-			<div class="dot regression">
-			</div> -->
+
+<!-- 		<div class="dot data">
+		</div>
+
+		<div class="dot regression">
+		</div>
+ -->
+		</div>
 	</body>
 </html>

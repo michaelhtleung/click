@@ -3,6 +3,7 @@ let model;
 
 function appendPoint(coords) {
 	clickedPoints.push(coords);
+	// console.log(clickedPoints);
 	updateModel();
 }
 
