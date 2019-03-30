@@ -10,7 +10,6 @@ function hideTitle() {
 	// No need to rip things out of the DOM now, because
 	// fadeOut() sets display:none last.
 	$("#flex-container").fadeOut("slow"); 
-	console.log("clicked");
 }
 
 function getCoordinates(event) {
@@ -48,4 +47,12 @@ function drawPoint(coords, type) {
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
 	$("body").append(html);
+}
+
+// this function causes this weird stacking bug lol
+function drawRegressionPoints(model) {
+	// I didn't use forEach() because type isn't an index
+	for (let index = 0; index < model.points.length; index++) {
+		drawPoint(model.points[index], "regression");
+	}
 }
