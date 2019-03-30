@@ -39,7 +39,12 @@ body {
 	height: 26px;
 	width: 26px;
 	border-radius: 50%;
-	margin:;
+}
+
+.regressionDotFlexContainer {
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .dot.data {
@@ -48,18 +53,15 @@ body {
 
 .dot.regression {
 	background-color: #FFFFFF; /* white */	
-	position: relative;
+	position: absolute;
 	animation-name: jitter;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
+	/*animation-direction: alternate;*/
+	margin: 0;
 }
 
 @keyframes jitter {
-	25% {
-		margin-bottom: 30px;
-	}
-	75% {
-		margin-top: 30px;
-	}
+	/*consider wrapping */
 }

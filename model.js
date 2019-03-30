@@ -7,7 +7,8 @@ function appendPoint(coords) {
 	clickedPoints.push(coords);
 	// console.log(clickedPoints);
 	updateModel();
-	drawPoint(coords, "regression");
+	console.log(model);
+	// drawPoint([coords[0], model.predict(coords[0])], "regression");
 }
 
 function updateModel() {

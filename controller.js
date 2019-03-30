@@ -21,8 +21,7 @@ function getCoordinates(event) {
 
 	appendPoint(coords);
 	drawPoint(coords, "data");
-	// alert(coords);
-	console.log(coords);
+
 	// next steps:
 	// 1. append coords to dataPoints array
 	// 2. call calculateRegression() to calculate the new regression coefficients
@@ -46,12 +45,18 @@ function drawPoint(coords, type) {
 	let cssClass = `dot ${type}`;
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
+	if (cssClass = "regression") {
+		html = "<div class=regressionDotFlexContainer>" + html;
+		html += "</div>";
+	}
+
 	$("body").append(html);
 }
 
 // this function causes this weird stacking bug lol
 function drawRegressionPoints(model) {
 	// I didn't use forEach() because type isn't an index
+	$(".regression").remove();
 	for (let index = 0; index < model.points.length; index++) {
 		drawPoint(model.points[index], "regression");
 	}
