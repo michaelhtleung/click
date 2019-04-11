@@ -16,6 +16,9 @@ function updateModel() {
 	model = regression.linear(clickedPoints);
 	// console.log(model);
 	// updateRegressionPoints();
+	// $(".regression").fadeIn("slow", function() {
+	// 	drawRegressionPoints(model);
+	// });
 	drawRegressionPoints(model);
 }
 

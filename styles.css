@@ -41,11 +41,11 @@ body {
 	border-radius: 50%;
 }
 
-.regressionDotFlexContainer {
+/*.regressionDotFlexContainer {
 	display: flex;
 	margin-top: 15px;
 	margin-bottom: 15px;
-}
+}*/
 
 .dot.data {
 	background-color: #cfcdc1; /* silver */
@@ -63,5 +63,6 @@ body {
 }
 
 @keyframes jitter {
-	/*consider wrapping */
+	/* I really want to fix this with margins or flexbox somehow,
+	but I"m not sure how*/
 }
