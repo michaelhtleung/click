@@ -48,12 +48,15 @@ body {
 }
 
 .dot.data {
+	position: absolute;
 	background-color: #cfcdc1; /* silver */
+    z-index: 1;
 }
 
 .dot.regression {
-	background-color: #FFFFFF; /* white */	
 	position: absolute;
+	z-index: 2;
+	background-color: #FFFFFF; /* white */
 	animation-name: jitter;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
