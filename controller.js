@@ -1,6 +1,15 @@
 $(document).ready(function() {
-	$("body").click(function(event) { 
-		getCoordinates(event);
+	$("body").click(function(event) {
+	  // handle each new data point
+		let coords;
+		let model;
+		coords = getCoordinates(event);
+		appendPoint(coords);
+		drawPoint(coords, "data");
+
+		// handle all new regression points
+		model = updateModel();
+		drawRegressionPoints(model);
 	});
 });
 
@@ -18,9 +27,7 @@ function getCoordinates(event) {
 	var x = event.clientX;
 	var y = event.clientY; 
 	var coords = [x, y];
-
-	appendPoint(coords);
-	drawPoint(coords, "data");
+	return coords;
 
 	// next steps:
 	// 1. append coords to dataPoints array

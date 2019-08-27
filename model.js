@@ -6,17 +6,16 @@ let model;
 function appendPoint(coords) {
 	clickedPoints.push(coords);
 	// console.log(clickedPoints);
-	updateModel();
-	console.log(model);
+	// console.log(model);
 	// drawPoint([coords[0], model.predict(coords[0])], "regression");
 }
 
 function updateModel() {
 	oldRegressionPoints = regressionPoints;
 	model = regression.linear(clickedPoints);
+	return model;
 	// console.log(model);
 	// updateRegressionPoints();
-	drawRegressionPoints(model);
 }
 
 // function updateRegressionPoints() {
