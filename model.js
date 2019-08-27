@@ -9,11 +9,9 @@ function updateModel(model) {
 
 function updateRegressionPoints(model, regressionPoints) {
 	let spacing = 40;
-	for (let x = spacing; x < 1920; x += spacing) {
+	for (let x = spacing; x < window.innerWidth; x += spacing) {
 		regressionPoints.push(model.predict(x));
     // console.log( model.predict(x) );
-    // regressionPoints.push([x, 200]);
-		// regressionPoints.push([x, 2*x]);
 	}
 	// console.log(regressionPoints);
 	return regressionPoints
