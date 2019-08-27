@@ -1,6 +1,3 @@
-let clickedPoints = []; // points clicked by user used to set regression parameters
-let model;
-
 function updateModel(model) {
 	model = regression.linear(clickedPoints);
 	// console.log(model);

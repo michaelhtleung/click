@@ -1,3 +1,5 @@
+let clickedPoints = []; // points clicked by user used to set regression parameters
+
 $(document).ready(function() {
 	$("body").click(function(event) {
 		if (event.button == 2){
@@ -57,6 +59,7 @@ function drawPoint(coords, type) {
 	// subtraction is for centering the dots and uses some magic numbers
 	let css = `left: ${coords[0] - width*0.80};`;
 	css += `top: ${coords[1] - height*0.80};`;
+	css += " display: none;";
 	let cssClass = `dot ${type}`;
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
@@ -67,6 +70,7 @@ function drawPoint(coords, type) {
 	// }
 
 	$("body").append(html);
+	$(".dot").fadeIn(400);
 }
 
 function drawRegressionPoints(rp) {
