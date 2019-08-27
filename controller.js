@@ -1,14 +1,16 @@
 let clickedPoints = []; // points clicked by user used to set regression parameters
+let regressionPoints = []; // points that outline the linearly regressed curve
+let oldRegressionPoints = [];
 
 $(document).ready(function() {
 	$("body").click(function(event) {
-		if (event.button == 2){
-			console.log("RMB");
-		}
+		// if (event.button == 2){
+		// 	console.log("RMB");
+		// }
+
 	  // handle each new data point
 		let coords;
 		let model;
-		let regressionPoints = []; // points that outline the linearly regressed curve
 		$(".regression").remove();
 
 		coords = getCoordinates(event);
@@ -19,7 +21,7 @@ $(document).ready(function() {
 		// handle all new regression points
 		model = updateModel(model);
 		regressionPoints = updateRegressionPoints(model, regressionPoints);
-		drawRegressionPoints(regressionPoints);
+		drawRegressionPoints(oldRegressionPoints, regressionPoints);
 	});
 });
 
@@ -70,10 +72,11 @@ function drawPoint(coords, type) {
 	// }
 
 	$("body").append(html);
+	// todo: change this to ".data" once the regression animation is done
 	$(".dot").fadeIn(400);
 }
 
-function drawRegressionPoints(rp) {
+function drawRegressionPoints(old_rp, rp) {
 	// I didn't use forEach() because type isn't an index
 	for (let index = 0; index < rp.length; index++) {
 		drawPoint(rp[index], "regression");
