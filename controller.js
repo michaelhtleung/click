@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	$("body").click(function(event) {
+		if (event.button == 2){
+			console.log("RMB");
+		}
 	  // handle each new data point
 		let coords;
 		let model;
