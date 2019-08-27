@@ -8,7 +8,8 @@ $(document).ready(function() {
 		drawPoint(coords, "data");
 
 		// handle all new regression points
-		model = updateModel();
+		model = updateModel(model);
+		$(".regression").remove();
 		drawRegressionPoints(model);
 	});
 });
@@ -60,10 +61,8 @@ function drawPoint(coords, type) {
 	$("body").append(html);
 }
 
-// this function causes this weird stacking bug lol
 function drawRegressionPoints(model) {
 	// I didn't use forEach() because type isn't an index
-	$(".regression").remove();
 	for (let index = 0; index < model.points.length; index++) {
 		drawPoint(model.points[index], "regression");
 	}

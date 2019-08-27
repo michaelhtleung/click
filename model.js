@@ -3,7 +3,7 @@ let regressionPoints = [] // points that outline the linearly regressed curve
 let oldRegressionPoints = [] // regression points before most recent click, allows for css animation
 let model;
 
-function updateModel() {
+function updateModel(model) {
 	oldRegressionPoints = regressionPoints;
 	model = regression.linear(clickedPoints);
 	return model;
