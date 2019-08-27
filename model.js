@@ -1,21 +1,13 @@
 let clickedPoints = []; // points clicked by user used to set regression parameters
 let regressionPoints = [] // points that outline the linearly regressed curve
 let oldRegressionPoints = [] // regression points before most recent click, allows for css animation
-let model; 
-
-function appendPoint(coords) {
-	clickedPoints.push(coords);
-	// console.log(clickedPoints);
-	// console.log(model);
-	// drawPoint([coords[0], model.predict(coords[0])], "regression");
-}
+let model;
 
 function updateModel() {
 	oldRegressionPoints = regressionPoints;
 	model = regression.linear(clickedPoints);
 	return model;
 	// console.log(model);
-	// updateRegressionPoints();
 }
 
 // function updateRegressionPoints() {

@@ -4,7 +4,7 @@ $(document).ready(function() {
 		let coords;
 		let model;
 		coords = getCoordinates(event);
-		appendPoint(coords);
+		clickedPoints.push(coords);
 		drawPoint(coords, "data");
 
 		// handle all new regression points
