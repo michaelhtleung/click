@@ -3,14 +3,18 @@ $(document).ready(function() {
 	  // handle each new data point
 		let coords;
 		let model;
+		let regressionPoints = []; // points that outline the linearly regressed curve
+		$(".regression").remove();
+
 		coords = getCoordinates(event);
+		console.log(coords);
 		clickedPoints.push(coords);
 		drawPoint(coords, "data");
 
 		// handle all new regression points
 		model = updateModel(model);
-		$(".regression").remove();
-		drawRegressionPoints(model);
+		regressionPoints = updateRegressionPoints(model, regressionPoints);
+		drawRegressionPoints(model, regressionPoints);
 	});
 });
 
@@ -54,7 +58,7 @@ function drawPoint(coords, type) {
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
 	// broken, because regression dots also belong to the dot class
-	// if (cssClass == "regression") {
+	// if (cssClass = "regression") {
 	// 	html = "<div class=regressionDotFlexContainer>" + html;
 	// 	html += "</div>";
 	// }
@@ -62,8 +66,12 @@ function drawPoint(coords, type) {
 	$("body").append(html);
 }
 
-function drawRegressionPoints(model) {
+function drawRegressionPoints(model, rp) {
 	// I didn't use forEach() because type isn't an index
+	// for (let index = 0; index < rp.length; index++) {
+	// 	drawPoint(rp[index], "regression");
+	// }
+
 	for (let index = 0; index < model.points.length; index++) {
 		drawPoint(model.points[index], "regression");
 	}
