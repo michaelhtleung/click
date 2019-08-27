@@ -53,10 +53,11 @@ function drawPoint(coords, type) {
 	let cssClass = `dot ${type}`;
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
-	if (cssClass = "regression") {
-		html = "<div class=regressionDotFlexContainer>" + html;
-		html += "</div>";
-	}
+	// broken, because regression dots also belong to the dot class
+	// if (cssClass == "regression") {
+	// 	html = "<div class=regressionDotFlexContainer>" + html;
+	// 	html += "</div>";
+	// }
 
 	$("body").append(html);
 }

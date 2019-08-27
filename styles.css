@@ -49,8 +49,8 @@ body {
 
 .dot.data {
 	position: absolute;
+	z-index: 1;
 	background-color: #cfcdc1; /* silver */
-    z-index: 1;
 }
 
 .dot.regression {
