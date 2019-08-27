@@ -3,13 +3,17 @@ let model;
 
 function updateModel(model) {
 	model = regression.linear(clickedPoints);
-	console.log(model);
+	// console.log(model);
 	return model;
 }
 
 function updateRegressionPoints(model, regressionPoints) {
-	for (var x = 26; x < 1920; x += 26) {
-		regressionPoints.push([x, model.predict(x)]) // this is probably not the most efficient way to do this
+	let spacing = 40;
+	for (let x = spacing; x < 1920; x += spacing) {
+		regressionPoints.push(model.predict(x));
+    // console.log( model.predict(x) );
+    // regressionPoints.push([x, 200]);
+		// regressionPoints.push([x, 2*x]);
 	}
 	// console.log(regressionPoints);
 	return regressionPoints

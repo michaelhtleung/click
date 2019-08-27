@@ -7,14 +7,14 @@ $(document).ready(function() {
 		$(".regression").remove();
 
 		coords = getCoordinates(event);
-		console.log(coords);
+		// console.log(coords);
 		clickedPoints.push(coords);
 		drawPoint(coords, "data");
 
 		// handle all new regression points
 		model = updateModel(model);
 		regressionPoints = updateRegressionPoints(model, regressionPoints);
-		drawRegressionPoints(model, regressionPoints);
+		drawRegressionPoints(regressionPoints);
 	});
 });
 
@@ -66,13 +66,9 @@ function drawPoint(coords, type) {
 	$("body").append(html);
 }
 
-function drawRegressionPoints(model, rp) {
+function drawRegressionPoints(rp) {
 	// I didn't use forEach() because type isn't an index
-	// for (let index = 0; index < rp.length; index++) {
-	// 	drawPoint(rp[index], "regression");
-	// }
-
-	for (let index = 0; index < model.points.length; index++) {
-		drawPoint(model.points[index], "regression");
+	for (let index = 0; index < rp.length; index++) {
+		drawPoint(rp[index], "regression");
 	}
 }
