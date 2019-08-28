@@ -59,6 +59,7 @@ body {
 	background-color: #FFFFFF; /* white */
 	animation-name: jitter;
 	animation-duration: 2s;
+    animation-direction: alternate;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	/*animation-direction: alternate;*/
@@ -67,4 +68,10 @@ body {
 
 @keyframes jitter {
 	/*consider wrapping */
+	from {
+		background-color: #FFFFFF; /* white */
+	}
+	to {
+		background-color: #000000; /* black */
+	}
 }
