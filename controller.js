@@ -1,3 +1,4 @@
+const FADE_OUT_SPEED = 400;
 let clickedPoints = []; // points clicked by user used to set regression parameters
 let regressionPoints = []; // points that outline the linearly regressed curve
 let oldRegressionPoints = [];
@@ -9,21 +10,20 @@ document.addEventListener("contextmenu", function(event){
 });
 
 document.addEventListener("mousedown", function(event){
-  const LEFT_DOWN = 1;
   const RIGHT_DOWN = 3;
-  if (event.which == LEFT_DOWN) {
-		console.log("left mouse down:", event.which);
-	} else if (event.which == RIGHT_DOWN){
+	if (event.which === RIGHT_DOWN){
 		console.log("right mouse down:", event.which);
+		$(".dot").fadeOut(FADE_OUT_SPEED, function(){
+			$(".dot").remove();
+			clickedPoints = []; // points clicked by user used to set regression parameters
+			regressionPoints = []; // points that outline the linearly regressed curve
+			$("#flex-container").fadeIn(FADE_OUT_SPEED);
+		});
 	}
 });
 
 $(document).ready(function() {
 	$("body").click(function(event) {
-		// if (event.button == 2){
-		// 	console.log("RMB");
-		// }
-
 	  // handle each new data point
 		let coords;
 		let model;
@@ -47,7 +47,7 @@ $(document).ready(function() {
 function hideTitle() {
 	// No need to rip things out of the DOM now, because
 	// fadeOut() sets display:none last.
-	$("#flex-container").fadeOut("slow"); 
+	$("#flex-container").fadeOut(FADE_OUT_SPEED);
 }
 
 function getCoordinates(event) {
