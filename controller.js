@@ -2,6 +2,22 @@ let clickedPoints = []; // points clicked by user used to set regression paramet
 let regressionPoints = []; // points that outline the linearly regressed curve
 let oldRegressionPoints = [];
 
+document.addEventListener("contextmenu", function(event){
+	// console.log("context menu button:", event.which);
+	// stop the context menu from appearing
+	event.preventDefault();
+});
+
+document.addEventListener("mousedown", function(event){
+  const LEFT_DOWN = 1;
+  const RIGHT_DOWN = 3;
+  if (event.which == LEFT_DOWN) {
+		console.log("left mouse down:", event.which);
+	} else if (event.which == RIGHT_DOWN){
+		console.log("right mouse down:", event.which);
+	}
+});
+
 $(document).ready(function() {
 	$("body").click(function(event) {
 		// if (event.button == 2){
