@@ -11,7 +11,8 @@ $(document).ready(function() {
 	  // handle each new data point
 		let coords;
 		let model;
-		$(".regression").remove();
+		$(".regression").fadeOut(400);
+		// .remove();
 
 		coords = getCoordinates(event);
 		// console.log(coords);
@@ -21,7 +22,7 @@ $(document).ready(function() {
 		// handle all new regression points
 		model = updateModel(model);
 		regressionPoints = updateRegressionPoints(model, regressionPoints);
-		drawRegressionPoints(oldRegressionPoints, regressionPoints);
+		drawRegressionPoints(regressionPoints);
 	});
 });
 
@@ -73,10 +74,10 @@ function drawPoint(coords, type) {
 
 	$("body").append(html);
 	// todo: change this to ".data" once the regression animation is done
-	$(".dot").fadeIn(400);
+	$(".dot").fadeIn(4000);
 }
 
-function drawRegressionPoints(old_rp, rp) {
+function drawRegressionPoints(rp) {
 	// I didn't use forEach() because type isn't an index
 	for (let index = 0; index < rp.length; index++) {
 		drawPoint(rp[index], "regression");
