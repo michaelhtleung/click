@@ -1,10 +1,10 @@
 const FADE_OUT_SPEED = 400;
+const FADE_IN_SPEED = 600;
+
 let clickedPoints = []; // points clicked by user used to set regression parameters
 let regressionPoints = []; // points that outline the linearly regressed curve
-let oldRegressionPoints = [];
 
 document.addEventListener("contextmenu", function(event){
-	// console.log("context menu button:", event.which);
 	// stop the context menu from appearing
 	event.preventDefault();
 });
@@ -12,12 +12,11 @@ document.addEventListener("contextmenu", function(event){
 document.addEventListener("mousedown", function(event){
   const RIGHT_DOWN = 3;
 	if (event.which === RIGHT_DOWN){
-		console.log("right mouse down:", event.which);
 		$(".dot").fadeOut(FADE_OUT_SPEED, function(){
 			$(".dot").remove();
 			clickedPoints = []; // points clicked by user used to set regression parameters
 			regressionPoints = []; // points that outline the linearly regressed curve
-			$("#flex-container").fadeIn(FADE_OUT_SPEED);
+			$("#flex-container").fadeIn(FADE_IN_SPEED);
 		});
 	}
 });
@@ -53,19 +52,9 @@ function hideTitle() {
 function getCoordinates(event) {
 	// these coordinates are with respect to the document's origin, 
 	// NOT the window's (viewport's) origin
-	var x = event.clientX;
-	var y = event.clientY; 
-	var coords = [x, y];
-	return coords;
-
-	// next steps:
-	// 1. append coords to dataPoints array
-	// 2. call calculateRegression() to calculate the new regression coefficients
-	// 3. call renderRegression() to update the DOM to reflect the new regression
-	// these 3 above steps can done in a getMouseWheel() function parallel to
-	// getCoordinates(), where scrolling the mouse wheel causes the order of the
-	// regression polynomial to change, but we should prompt the user to scroll
-	// their wheel or they're unlikely to find this feature
+	let x = event.clientX;
+	let y = event.clientY;
+	return [x, y];
 }
 
 // coords array Array holding the x and y coordinates of the point to be drawn on the DOM
@@ -82,20 +71,26 @@ function drawPoint(coords, type) {
 	let cssClass = `dot ${type}`;
 	let html = `<div class="${cssClass}" style="${css}"></div>`;
 
-	// broken, because regression dots also belong to the dot class
-	// if (cssClass = "regression") {
-	// 	html = "<div class=regressionDotFlexContainer>" + html;
-	// 	html += "</div>";
-	// }
-
 	$("body").append(html);
 	// todo: change this to ".data" once the regression animation is done
-	$(".dot").fadeIn(600);
+	$(".dot").fadeIn(FADE_IN_SPEED);
 }
 
 function drawRegressionPoints(rp) {
-	// I didn't use forEach() because type isn't an index
 	for (let index = 0; index < rp.length; index++) {
 		drawPoint(rp[index], "regression");
 	}
+}
+
+function updateModel(model) {
+	model = regression.linear(clickedPoints);
+	return model;
+}
+
+function updateRegressionPoints(model, regressionPoints) {
+	let spacing = 40;
+	for (let x = spacing; x < window.innerWidth; x += spacing) {
+		regressionPoints.push(model.predict(x));
+	}
+	return regressionPoints
 }
