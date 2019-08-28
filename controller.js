@@ -11,8 +11,8 @@ $(document).ready(function() {
 	  // handle each new data point
 		let coords;
 		let model;
-		$(".regression").fadeOut(400);
-		// .remove();
+		$(".regression").remove();
+		regressionPoints = [];
 
 		coords = getCoordinates(event);
 		// console.log(coords);
@@ -74,7 +74,7 @@ function drawPoint(coords, type) {
 
 	$("body").append(html);
 	// todo: change this to ".data" once the regression animation is done
-	$(".dot").fadeIn(4000);
+	$(".dot").fadeIn(600);
 }
 
 function drawRegressionPoints(rp) {
