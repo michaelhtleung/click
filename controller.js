@@ -12,10 +12,12 @@ document.addEventListener("contextmenu", function(event){
 document.addEventListener("mousedown", function(event){
   const RIGHT_DOWN = 3;
 	if (event.which === RIGHT_DOWN){
+		// document.getElementsByClassName('dot').style.animationPlayState = "paused";
 		$(".dot").fadeOut(FADE_OUT_SPEED, function(){
 			$(".dot").remove();
-			clickedPoints = []; // points clicked by user used to set regression parameters
-			regressionPoints = []; // points that outline the linearly regressed curve
+			// remove all points
+			clickedPoints = [];
+			regressionPoints = [];
 			$("#flex-container").fadeIn(FADE_IN_SPEED);
 		});
 	}

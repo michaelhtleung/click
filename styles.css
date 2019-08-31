@@ -57,8 +57,9 @@ body {
 	position: absolute;
 	z-index: 2;
 	background-color: #FFFFFF; /* white */
+    opacity: 0.8;
 	animation-name: jitter;
-    animation-delay: 0.7s;
+    animation-delay: 1.6s;
 	animation-duration: 1.6s;
     animation-direction: alternate;
 	animation-iteration-count: infinite;
