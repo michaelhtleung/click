@@ -1,3 +1,8 @@
+html { 
+	overflow-x: hidden; 
+	overflow-y: hidden; 
+}
+
 canvas {
 	border: 3px solid red;	
 	margin: 0;
