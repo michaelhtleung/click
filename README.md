@@ -1,21 +1,26 @@
 ## What it does
 This simple website draws a line of best fit for any set of clicked points on the screen.
 
-## Instructions
-- simply click here https://michaelhtleung.github.io/click/ to play around
+![title screenshot]()
+
+![linear screenshot]()
+
+![sqrt screenshot]()
+
+## Try It Out!
+[Click here to try it!](https://michaelhtleung.github.io/click/)
 
 ## Controls
 - Left-click anywhere to draw points for a line of best fit to represent.
 - Right-click anywhere to remove all points and reset everything.
 
 ## Tools
-- HTML
-- CSS
-- JavaScrpt
+- HTML, CSS, JavaScrpt
 - jQuery
-- regression node module
+- Regression NPM Module
 
 ## Concepts Applied
-- DOM manipulation
-- linear regression
-- CSS animations
+- Linear Regression
+- Event Listeners
+- DOM Manipulation
+- CSS Animations

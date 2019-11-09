@@ -1,2 +1,4 @@
 .idea/
 sublime-text-projects/
+*.iml
+*.log
